@@ -15,7 +15,7 @@ const GetPosts = () => {
     useEffect(() => {
         setPageName("Posts page")
         getPosts()
-    })
+    }, [])
     return (
         <div>
             {
