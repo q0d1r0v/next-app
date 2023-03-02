@@ -5,9 +5,18 @@ type Data = {
   name: string
 }
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  res.status(200).json({ name: 'John Doe' })
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+
+    res.status(200).send({
+      data: await response.json()
+    })
+  } catch(e) {
+    res.status(500).send({
+      message: e
+    })
+  }
 }
+
+export default handler
