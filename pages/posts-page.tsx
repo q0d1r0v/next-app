@@ -9,7 +9,7 @@ const GetPosts = () => {
     // methods
     async function getPosts() {
         const bodyData = {name: 'oybek'}
-        const response = await fetch('/api/hello', {
+        const response = await fetch('/api/posts', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
