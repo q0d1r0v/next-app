@@ -6,8 +6,10 @@ type Data = {
 }
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  console.log(req.body)
   try {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const response = await 
+    fetch('https://jsonplaceholder.typicode.com/posts')
 
     res.status(200).send({
       data: await response.json()

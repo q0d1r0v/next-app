@@ -8,7 +8,14 @@ const GetPosts = () => {
 
     // methods
     async function getPosts() {
-        const response = await fetch('/api/hello')
+        const bodyData = {name: 'oybek'}
+        const response = await fetch('/api/hello', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(bodyData)
+        })
         setPosts(await response.json())
     }
 
