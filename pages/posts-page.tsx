@@ -16,7 +16,9 @@ const GetPosts = () => {
             },
             body: JSON.stringify(bodyData)
         })
-        setPosts(await response.json())
+        const data = await response.json()
+        setPosts(data)
+        localStorage.setItem('auth', data.count)
     }
 
     useEffect(() => {

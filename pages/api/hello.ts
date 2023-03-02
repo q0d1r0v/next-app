@@ -5,6 +5,9 @@ type Data = {
   name: string
 }
 
+// data
+let num = 0
+
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   console.log(req.body)
   try {
@@ -12,7 +15,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     fetch('https://jsonplaceholder.typicode.com/posts')
 
     res.status(200).send({
-      data: await response.json()
+      data: await response.json(),
+      count: num++
     })
   } catch(e) {
     res.status(500).send({
